@@ -16,8 +16,7 @@ model = pickle.load(open('yield.pkl', 'rb'))
 crop = pickle.load(open('crop.pkl', 'rb'))
 
 
-@app.route('/')
-@app.route('/login')
+@app.route('/', methods=['POST', 'GET'])
 def login():
     return render_template('login.html')
 
@@ -27,6 +26,7 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/login')
 @app.route('/chart')
 def chart():
     return render_template('chart.html')
